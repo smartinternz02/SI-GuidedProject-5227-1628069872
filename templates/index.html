@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head(~{::title})">
+    <title>Dreamfit</title>
+</head>
+<body>
+<div th:replace="template::top-bar"></div>
+<div th:replace="template :: main(~{:: div.maincontent})">
+
+    <div class="maincontent">
+        <div class="site-section pb-0" id="bg" style="height: 100%">
+            <div class="container" id="cont" style=" height: 100%">
+                <div class="d-inline-block" style="height: 100%; width: 100%">
+                    <div class="d-flex flex-grow-1 mt-2" data-aos="fade-zoom-in" data-aos-offset="0"
+                         style="height: 100%; width: 100%; background: #eeeeee; border: 1px solid #b8b8b8; border-radius: 0.5rem;">
+                        <div class=" p-lg-3 d-flex flex-grow-1"
+                             style="border: 7px solid rgba(31,171,0,0.27); border-radius: 0.5rem; background: rgba(194,175,215,0.34) ">
+                            <div class="d-flex flex-grow-1 flex-column mb-5 mb-md-0 align-content-md-start"
+                                 style="margin-top: 10%">
+                                <h1 style="text-align: center">Track your nutrition, fitness & health data.</h1>
+                                <h2 style="text-align: center">Log your diet, exercise, biometrics and notes.</h2>
+                                <div sec:authorize="isAuthenticated()"
+                                     class="form-group d-inline-flex justify-content-center">
+                                    <a href="/user" style="color:rgb(251,251,255); text-decoration: none">
+                                        <button class="btn-success p-3 pl-5 pr-5" style="border-radius: 0.2rem"
+                                                th:text="#{diary}"></button>
+                                    </a>
+                                </div>
+                                <div sec:authorize="!isAuthenticated()" href="/signup"
+                                     class="form-group d-inline-flex justify-content-center">
+                                    <a style="color:rgb(251,251,255); text-decoration: none" th:text="#{login.sign-up}">
+                                        <button class="btn-success p-3 pl-5 pr-5"
+                                                style="border-radius: 0.2rem"></button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:replace="template :: footer"></div>
+<div th:replace="template :: scripts(null)"></div>  <!--(~{::script})-->
+</body>
+</html>

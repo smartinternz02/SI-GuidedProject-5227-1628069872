@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)" th:replace="/fragments/head :: head(${title})"></head>
+<body>
+<div class="top-container container"
+     style="padding: 0; margin-bottom: 0.1rem; border: 5px solid rgba(217,255,166,0.53); border-top: none ; border-right: none ; border-left: none"
+     th:fragment="top-bar">
+    <nav th:fragment="menubar" th:replace="/fragments/menubar :: content"></nav>
+</div>
+
+<main th:fragment="main(content)" th:replace="/fragments/main :: main(${content})"></main>
+
+<footer th:fragment="footer" th:replace="/fragments/footer :: content"></footer>
+<div th:fragment="scripts(additional_scripts)"
+     th:replace="/fragments/global-scripts :: scripts(${additional_scripts})"></div>
+</body>
+</html>
